@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { initFacebookPixel, trackLeadEvent } from './services/pixelService';
+import { initFacebookPixel, trackLeadEvent } from './services/pixelService.ts';
 import { 
   CheckIcon, 
   WhatsAppIcon, 
@@ -8,21 +8,21 @@ import {
   ArrowIcon, 
   HeartIcon, 
   SparklesIcon 
-} from './components/LucideIcons';
+} from './components/LucideIcons.tsx';
 
 const App: React.FC = () => {
   const PIXEL_ID = "839154938743008";
   const INSTAGRAM_URL = "https://www.instagram.com/kundalini.ka_bergamo/";
 
   useEffect(() => {
-    // Initialize Pixel and track the "Lead" (Contact) event on mount
+    // Inizializza il Pixel e traccia l'evento "Contact" al caricamento
     initFacebookPixel(PIXEL_ID);
     trackLeadEvent();
   }, []);
 
   return (
     <div className="min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-8 overflow-hidden">
-      {/* Zen Background Elements */}
+      {/* Elementi di sfondo Zen */}
       <div className="absolute inset-0 zen-gradient pointer-events-none" />
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-amber-100/30 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-sage-100/20 blur-[100px] rounded-full pointer-events-none" />
@@ -37,10 +37,10 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Card */}
+      {/* Card Principale */}
       <main className="max-w-2xl w-full bg-white/80 backdrop-blur-md border border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.05)] rounded-[2.5rem] p-8 sm:p-12 md:p-16 flex flex-col items-center text-center z-10">
         
-        {/* Animated Checkmark */}
+        {/* Checkmark Animato */}
         <div className="relative mb-8">
           <div className="absolute inset-0 bg-green-100 rounded-full scale-125 blur-xl animate-pulse" />
           <div className="relative bg-green-500 w-20 h-20 rounded-full flex items-center justify-center shadow-lg shadow-green-200 animate-[scaleIn_0.5s_cubic-bezier(0.175,0.885,0.32,1.275)]">
@@ -48,7 +48,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Section */}
+        {/* Sezione Contenuto */}
         <div className="space-y-6 animate-[slideUp_0.8s_ease-out]">
           <h1 className="text-4xl sm:text-5xl md:text-6xl text-slate-900 leading-tight">
             Grazie per aver scelto <br />
@@ -67,7 +67,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Actions - Updated to show only Instagram button centered */}
+        {/* Call to Actions */}
         <div className="mt-12 w-full flex justify-center animate-[fadeIn_1.2s_ease-out]">
           <a 
             href={INSTAGRAM_URL}
@@ -82,12 +82,12 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      {/* Footer Info */}
+      {/* Footer */}
       <footer className="mt-8 text-slate-400 text-sm z-10 animate-fade-in">
         <p>© {new Date().getFullYear()} Kundalini Ka Bergamo • Risveglia la tua energia vitale</p>
       </footer>
 
-      {/* Styles for simple animations */}
+      {/* Animazioni CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes fadeIn {
           from { opacity: 0; }
