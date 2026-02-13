@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { initFacebookPixel, trackLeadEvent } from './services/pixelService.ts';
+import { initFacebookPixels, trackLeadEvent } from './services/pixelService.ts';
 import { 
   CheckIcon, 
   WhatsAppIcon, 
@@ -11,12 +11,12 @@ import {
 } from './components/LucideIcons.tsx';
 
 const App: React.FC = () => {
-  const PIXEL_ID = "839154938743008";
+  const PIXEL_IDS = ["839154938743008", "33677205665258244"];
   const INSTAGRAM_URL = "https://www.instagram.com/kundalini.ka_bergamo/";
 
   useEffect(() => {
-    // Inizializza il Pixel e traccia l'evento "Contact" al caricamento
-    initFacebookPixel(PIXEL_ID);
+    // Inizializza entrambi i Pixel e traccia l'evento "Contact" al caricamento
+    initFacebookPixels(PIXEL_IDS);
     trackLeadEvent();
   }, []);
 
